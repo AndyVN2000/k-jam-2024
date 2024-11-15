@@ -16,3 +16,5 @@ texture = ExtResource("1_y71xq")
 position = Vector2(-0.148087, 0)
 scale = Vector2(1.00383, 1)
 polygon = PackedVector2Array(24, 0, 10, 10, -25, 10, -25, -10, 10, -10)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

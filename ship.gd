@@ -21,3 +21,9 @@ func _process(delta: float) -> void:
 	course = Vector2.RIGHT.rotated(rotation)
 	
 	
+
+
+func _on_area_entered(area: Area2D) -> void:
+	print("WE HAVE BEEN HIT!")
+	course -= course * -400
+	pass # Replace with function body.
