@@ -1,0 +1,11 @@
+SeaMap Ship scene
+- Rotation (DONE)
+- Collision detection
+- Hull damage
+
+ShipMap scene
+- Hull/health
+
+Rock scene
+- movement in relation to ship (DONE)
+- Collision detection
