@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqo13aryubtnr"]
+
+[ext_resource type="Texture2D" uid="uid://dik4m4ac40yd0" path="res://art/alpha_rock.png" id="1_wosui"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_swacj"]
+radius = 7.0
+
+[node name="Rock" type="Area2D"]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_swacj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wosui")
+metadata/_edit_group_ = true
