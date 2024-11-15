@@ -5,6 +5,12 @@ SeaMap Ship scene
 - Hull damage
 
 ShipMap scene
+- The viewport itself
+- Visible hull damage
+- Player unit
+- Resource stations
+-- Plank bundle
+-- Cannonballs
 - Hull/health
 
 Rock scene

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://beprj65unhksn"]
+
+[ext_resource type="PackedScene" uid="uid://737aqfe5a0mp" path="res://ship_deck_view.tscn" id="1_mbetu"]
+[ext_resource type="PackedScene" uid="uid://dp84w6idsrsec" path="res://SeaMap.tscn" id="2_gavjc"]
+
+[node name="Main" type="Node"]
+
+[node name="ShipDeckView" parent="." instance=ExtResource("1_mbetu")]
+
+[node name="SubViewportContainer" parent="." instance=ExtResource("2_gavjc")]
