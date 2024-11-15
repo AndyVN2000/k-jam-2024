@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://c1d6lw0kgcae" path="res://art/alpha_ship.png" id="1_y71xq"]
 
 [node name="Ship" type="Area2D"]
-position = Vector2(574, 310)
 script = ExtResource("1_sucn4")
 metadata/_edit_group_ = true
 
