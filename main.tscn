@@ -26,6 +26,7 @@ signal game_over
 func _ready() -> void:
 	value = 0
 	ship.hit_taken.connect(damaged)
+	SignalBus.on_repair.connect(_on_hole_area_repaired)
 	pass # Replace with function body.
 
 
