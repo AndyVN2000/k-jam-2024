@@ -29,5 +29,3 @@ func _process(delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	print("WE HAVE BEEN HIT!")
 	hit_taken.emit()
-	course -= course * -400
-	pass # Replace with function body.

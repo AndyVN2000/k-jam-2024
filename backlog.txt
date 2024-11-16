@@ -32,3 +32,6 @@ Player scene
 Rock scene
 - movement in relation to ship (DONE)
 - Collision detection (DONE)
+
+BUGS
+- Rocks disappear when ship hits one while not in control (FIXED)
