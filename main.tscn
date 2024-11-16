@@ -42,7 +42,7 @@ func damaged():
 script = ExtResource("1_y5gon")
 rock_scene = ExtResource("2_nik6d")
 
-[node name="ShipDeckView" parent="." instance=ExtResource("1_mbetu")]
+[node name="ShipDeckView" parent="." groups=["disabled_scripts"] instance=ExtResource("1_mbetu")]
 
 [node name="RockPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_c74ci")

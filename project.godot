@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Ship="*res://right_viewport/ship.gd"
 
+[global_group]
+
+disabled_scripts="if part of this group, functionality of script will be disabled"
+
 [input]
 
 move_up={
