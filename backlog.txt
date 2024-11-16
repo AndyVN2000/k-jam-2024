@@ -10,8 +10,9 @@ ShipMap scene
 - The viewport itself (DONE)
 - TileSets and -Map of deck (DONE)
 - Visible hull damage
-- Resource stations
--- Plank bundle
+-- Hole removed (DONE)
+- Resource stations (DONE)
+-- Plank bundle (DONE)
 -- Cannonballs (DONE)
 - Hull/health (DONE)
 -- Health update upon damage (DONE)
