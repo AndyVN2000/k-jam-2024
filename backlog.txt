@@ -9,8 +9,16 @@ SeaMap Ship scene
 
 ShipMap scene
 - The viewport itself (DONE)
+- TileSets and -Map of deck (DONE)
 - Visible hull damage
 - Player unit
+-- Can move (DONE)
+-- Interact with Ship
+--- Switch mode to controlling the wheel
+--- Exit mode to control the wheel
+--- Collect items
+--- Repair hull
+--- Fire cannon
 - Resource stations
 -- Plank bundle
 -- Cannonballs
@@ -18,4 +26,4 @@ ShipMap scene
 
 Rock scene
 - movement in relation to ship (DONE)
-- Collision detection
+- Collision detection (DONE)
