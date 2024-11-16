@@ -8,7 +8,7 @@ SeaMap Ship scene
 - Hull damage
 
 ShipMap scene
-- The viewport itself
+- The viewport itself (DONE)
 - Visible hull damage
 - Player unit
 - Resource stations
