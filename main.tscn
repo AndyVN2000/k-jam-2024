@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://beprj65unhksn"]
+[gd_scene load_steps=6 format=3 uid="uid://beprj65unhksn"]
 
 [ext_resource type="PackedScene" uid="uid://737aqfe5a0mp" path="res://ship_deck_view.tscn" id="1_mbetu"]
+[ext_resource type="Script" path="res://main.gd" id="1_y5gon"]
 [ext_resource type="PackedScene" uid="uid://bfxfddmw86v3l" path="res://right_viewport/sea_map.tscn" id="2_hucxx"]
+[ext_resource type="PackedScene" uid="uid://dqo13aryubtnr" path="res://right_viewport/rock.tscn" id="2_nik6d"]
 
 [sub_resource type="Curve2D" id="Curve2D_c74ci"]
 _data = {
@@ -10,14 +12,20 @@ _data = {
 point_count = 5
 
 [node name="Main" type="Node"]
+script = ExtResource("1_y5gon")
+rock_scene = ExtResource("2_nik6d")
 
 [node name="ShipDeckView" parent="." instance=ExtResource("1_mbetu")]
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="RockPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_c74ci")
 metadata/_edit_group_ = true
 
-[node name="RockSpawnLocation" type="PathFollow2D" parent="Path2D"]
+[node name="RockSpawnLocation" type="PathFollow2D" parent="RockPath"]
 position = Vector2(896, 192)
 
-[node name="SubViewportContainer" parent="." instance=ExtResource("2_hucxx")]
+[node name="SeaMapView" parent="." instance=ExtResource("2_hucxx")]
+
+[node name="RockTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="RockTimer" to="." method="_on_rock_timer_timeout"]

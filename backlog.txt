@@ -2,6 +2,8 @@ SeaMap Ship scene
 - Rotation (DONE)
 - Collision detection (DONE)
 - Rock generation
+-- Basic rock generation (DONE)
+-- Advanced rock generation
 -- Physics
 - Hull damage
 
