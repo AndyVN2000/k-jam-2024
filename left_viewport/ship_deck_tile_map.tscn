@@ -274,9 +274,6 @@ z_index = 1
 position = Vector2(211.5, 299)
 shape = SubResource("RectangleShape2D_kclnw")
 
-[node name="HoleArea" parent="." instance=ExtResource("13_2jumd")]
-position = Vector2(212, 227)
-
 [node name="PlanksArea" type="Area2D" parent="."]
 z_index = 1
 position = Vector2(271, 215)
