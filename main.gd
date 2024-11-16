@@ -13,6 +13,7 @@ func _ready() -> void:
 	$RockTimer.start()
 	
 	player.can_steer_wheel.connect(wheel)
+	player.cannot_steer_wheel.connect(wheel)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,7 +29,7 @@ func _process(delta: float) -> void:
 		
 
 func wheel():
-	can_steer_wheel = true
+	can_steer_wheel = not can_steer_wheel
 
 
 # Translates global positions to the coordinate system of the sea map view

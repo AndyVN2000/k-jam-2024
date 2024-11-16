@@ -5,6 +5,7 @@ signal cannon_ball_drop
 signal plank_pickup
 signal plank_drop
 signal can_steer_wheel
+signal cannot_steer_wheel
 
 var speed = 300.0
 var holding_cannon_ball: bool = false
@@ -56,7 +57,10 @@ func _on_cannon_area_body_entered(body: Node2D) -> void:
 
 func _on_wheel_area_body_entered(body: Node2D) -> void:
 	can_steer_wheel.emit()
-	pass # Replace with function body.
+
+
+func _on_wheel_area_body_exited(body: Node2D) -> void:
+	cannot_steer_wheel.emit()
 
 
 func _on_planks_area_body_entered(body: Node2D) -> void:
