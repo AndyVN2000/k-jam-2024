@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://brag6ojr8mdyw"]
+[gd_scene load_steps=34 format=4 uid="uid://brag6ojr8mdyw"]
 
 [ext_resource type="Script" path="res://left_viewport/ship_deck_tile_map.gd" id="1_02c3u"]
 [ext_resource type="Texture2D" uid="uid://da5w48n82yvx0" path="res://art/alpha_tile_set.png" id="1_7encj"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c7pomsifc2v34" path="res://art/props/wheel_v1.png" id="6_b2u5i"]
 [ext_resource type="Texture2D" uid="uid://x6ctm5pl6vxl" path="res://art/props/planks_v2.png" id="8_7vr2n"]
 [ext_resource type="Script" path="res://left_viewport/hole_layer.gd" id="8_13lpu"]
+[ext_resource type="Script" path="res://left_viewport/hole_area.gd" id="13_iom2s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5u36"]
 texture = ExtResource("1_7encj")
@@ -280,6 +281,7 @@ z_index = 2
 position = Vector2(233, 272)
 collision_layer = 8
 collision_mask = 2
+script = ExtResource("13_iom2s")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HoleArea"]
@@ -303,4 +305,5 @@ shape = SubResource("RectangleShape2D_agv8w")
 [connection signal="body_entered" from="CannonArea" to="Player" method="_on_cannon_area_body_entered"]
 [connection signal="body_entered" from="WheelArea" to="Player" method="_on_wheel_area_body_entered"]
 [connection signal="body_entered" from="HoleArea" to="Player" method="_on_hole_area_body_entered"]
+[connection signal="body_entered" from="HoleArea" to="HoleArea" method="_on_body_entered"]
 [connection signal="body_entered" from="PlanksArea" to="Player" method="_on_planks_area_body_entered"]
