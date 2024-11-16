@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-
 var speed = 300.0
+var holding_cannon_ball: bool = false
 
 
 func _physics_process(delta: float) -> void:
@@ -21,3 +21,11 @@ func _physics_process(delta: float) -> void:
 	position += velocity * delta
 
 	move_and_slide()
+
+
+func _on_cannon_ball_resource_body_entered(body: Node2D) -> void:
+	# Bail out fast if already holding cannon ball
+	if holding_cannon_ball:
+		return
+	
+	holding_cannon_ball = true

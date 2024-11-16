@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://brag6ojr8mdyw"]
+[gd_scene load_steps=13 format=4 uid="uid://brag6ojr8mdyw"]
 
 [ext_resource type="Texture2D" uid="uid://da5w48n82yvx0" path="res://art/alpha_tile_set.png" id="1_7encj"]
 [ext_resource type="Texture2D" uid="uid://hmkhbpgkif2j" path="res://art/tilesets/ship_tileset.png" id="2_brfui"]
 [ext_resource type="PackedScene" uid="uid://dmae8l515llnd" path="res://left_viewport/player.tscn" id="2_y84hh"]
+[ext_resource type="Script" path="res://left_viewport/cannon_ball_resource.gd" id="4_21pyh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5u36"]
 texture = ExtResource("1_7encj")
@@ -64,6 +65,9 @@ sources/0 = SubResource("TileSetAtlasSource_sdpy4")
 
 [sub_resource type="TileSet" id="TileSet_snph5"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogpfn"]
+size = Vector2(63, 43)
+
 [node name="ShipDeckTileMap" type="Node2D"]
 
 [node name="LayerHolder" type="Node2D" parent="."]
@@ -88,4 +92,17 @@ tile_set = SubResource("TileSet_snph5")
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_y84hh")]
 z_index = 2
 position = Vector2(280, 300)
-collision_mask = 5
+collision_mask = 13
+
+[node name="CannonBallResource" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("4_21pyh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CannonBallResource"]
+z_index = 2
+position = Vector2(336.5, 280.5)
+shape = SubResource("RectangleShape2D_ogpfn")
+
+[connection signal="body_entered" from="CannonBallResource" to="CharacterBody2D" method="_on_cannon_ball_resource_body_entered"]
+[connection signal="body_entered" from="CannonBallResource" to="CannonBallResource" method="_on_body_entered"]
