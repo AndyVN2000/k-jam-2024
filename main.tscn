@@ -19,6 +19,7 @@ script/source = "extends TextureProgressBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	value = 0
 	ship.hit_taken.connect(damaged)
 	pass # Replace with function body.
 
@@ -28,6 +29,7 @@ func _process(delta: float) -> void:
 	pass
 
 func damaged():
+	value += 10
 	print(\"SHIP HAS BEEN DAMAGED\")
 "
 
