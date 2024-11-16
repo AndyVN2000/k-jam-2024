@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bfxfddmw86v3l"]
 
-[ext_resource type="PackedScene" uid="uid://besrp0y36utci" path="res://ship.tscn" id="1_ri1d1"]
-[ext_resource type="PackedScene" uid="uid://dqo13aryubtnr" path="res://rock.tscn" id="2_2hqgo"]
-[ext_resource type="Texture2D" uid="uid://bw10dfrvf1o0n" path="res://art/sea_map_texture.png" id="3_lsjsk"]
+[ext_resource type="PackedScene" uid="uid://besrp0y36utci" path="res://right_viewport/ship.tscn" id="1_htsog"]
+[ext_resource type="PackedScene" uid="uid://dqo13aryubtnr" path="res://right_viewport/rock.tscn" id="2_8usdi"]
+[ext_resource type="Texture2D" uid="uid://bw10dfrvf1o0n" path="res://art/sea_map_texture.png" id="3_jwcv7"]
 
 [node name="SubViewportContainer" type="SubViewportContainer"]
 anchors_preset = 6
@@ -21,14 +21,14 @@ handle_input_locally = false
 size = Vector2i(240, 240)
 render_target_update_mode = 4
 
-[node name="Ship" parent="SubViewport" instance=ExtResource("1_ri1d1")]
+[node name="Ship" parent="SubViewport" instance=ExtResource("1_htsog")]
 z_index = 1
 position = Vector2(125, 125)
 
-[node name="Rock" parent="SubViewport" instance=ExtResource("2_2hqgo")]
+[node name="Rock" parent="SubViewport" instance=ExtResource("2_8usdi")]
 z_index = 1
 position = Vector2(140, 30)
 
 [node name="Sprite2D" type="Sprite2D" parent="SubViewport"]
-texture = ExtResource("3_lsjsk")
+texture = ExtResource("3_jwcv7")
 centered = false

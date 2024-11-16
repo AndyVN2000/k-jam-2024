@@ -17,4 +17,4 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Ship="*res://ship.gd"
+Ship="*res://right_viewport/ship.gd"
