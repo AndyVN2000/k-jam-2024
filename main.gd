@@ -17,7 +17,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if can_steer_wheel and Input.is_action_pressed("steer_ship"):
+	if can_steer_wheel and Input.is_action_just_released("steer_ship"):
 		
 		if player.is_in_group("disabled_scripts"):
 			player.remove_from_group("disabled_scripts")
