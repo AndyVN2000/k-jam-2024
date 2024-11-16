@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://beprj65unhksn"]
 
-[ext_resource type="PackedScene" uid="uid://737aqfe5a0mp" path="res://ship_deck_view.tscn" id="1_mbetu"]
+[ext_resource type="PackedScene" uid="uid://737aqfe5a0mp" path="res://left_viewport/ship_deck_view.tscn" id="1_mbetu"]
 [ext_resource type="Script" path="res://main.gd" id="1_y5gon"]
 [ext_resource type="PackedScene" uid="uid://bfxfddmw86v3l" path="res://right_viewport/sea_map.tscn" id="2_hucxx"]
 [ext_resource type="PackedScene" uid="uid://dqo13aryubtnr" path="res://right_viewport/rock.tscn" id="2_nik6d"]

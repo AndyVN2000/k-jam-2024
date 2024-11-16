@@ -18,6 +18,12 @@ size = Vector2i(576, 512)
 render_target_update_mode = 4
 
 [node name="TextureRect" type="TextureRect" parent="SubViewport"]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_1v3km")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(576, 512)
+layout_mode = 2
