@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://brag6ojr8mdyw"]
+[gd_scene load_steps=33 format=4 uid="uid://brag6ojr8mdyw"]
 
 [ext_resource type="Script" path="res://left_viewport/ship_deck_tile_map.gd" id="1_02c3u"]
 [ext_resource type="Texture2D" uid="uid://da5w48n82yvx0" path="res://art/alpha_tile_set.png" id="1_7encj"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c7pomsifc2v34" path="res://art/props/wheel_v1.png" id="6_b2u5i"]
 [ext_resource type="Texture2D" uid="uid://x6ctm5pl6vxl" path="res://art/props/planks_v2.png" id="8_7vr2n"]
 [ext_resource type="Script" path="res://left_viewport/hole_layer.gd" id="8_13lpu"]
-[ext_resource type="Script" path="res://left_viewport/hole_area.gd" id="13_iom2s"]
+[ext_resource type="PackedScene" uid="uid://chkyp2hj110ls" path="res://left_viewport/hole.tscn" id="13_2jumd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5u36"]
 texture = ExtResource("1_7encj")
@@ -176,7 +176,7 @@ texture = ExtResource("3_2c06q")
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_snph5"]
-sources/2 = SubResource("TileSetAtlasSource_orkfo")
+sources/0 = SubResource("TileSetAtlasSource_orkfo")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogpfn"]
 size = Vector2(63, 43)
@@ -212,14 +212,12 @@ func _on_body_exited(body: Node2D) -> void:
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kclnw"]
 size = Vector2(27, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tiwbv"]
-size = Vector2(16, 16)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_agv8w"]
 size = Vector2(44, 29)
 
 [node name="ShipDeckTileMap" type="Node2D"]
 script = ExtResource("1_02c3u")
+hole_scene = ExtResource("13_2jumd")
 
 [node name="LayerHolder" type="Node2D" parent="."]
 
@@ -276,19 +274,8 @@ z_index = 1
 position = Vector2(211.5, 299)
 shape = SubResource("RectangleShape2D_kclnw")
 
-[node name="HoleArea" type="Area2D" parent="."]
-z_index = 2
-position = Vector2(233, 272)
-collision_layer = 8
-collision_mask = 2
-script = ExtResource("13_iom2s")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HoleArea"]
-shape = SubResource("RectangleShape2D_tiwbv")
-
-[node name="Sprite2D" type="Sprite2D" parent="HoleArea"]
-texture = ExtResource("3_2c06q")
+[node name="HoleArea" parent="." instance=ExtResource("13_2jumd")]
+position = Vector2(212, 227)
 
 [node name="PlanksArea" type="Area2D" parent="."]
 z_index = 1
@@ -304,6 +291,4 @@ shape = SubResource("RectangleShape2D_agv8w")
 [connection signal="body_entered" from="CannonBallResource" to="Player" method="_on_cannon_ball_resource_body_entered"]
 [connection signal="body_entered" from="CannonArea" to="Player" method="_on_cannon_area_body_entered"]
 [connection signal="body_entered" from="WheelArea" to="Player" method="_on_wheel_area_body_entered"]
-[connection signal="body_entered" from="HoleArea" to="Player" method="_on_hole_area_body_entered"]
-[connection signal="body_entered" from="HoleArea" to="HoleArea" method="_on_body_entered"]
 [connection signal="body_entered" from="PlanksArea" to="Player" method="_on_planks_area_body_entered"]

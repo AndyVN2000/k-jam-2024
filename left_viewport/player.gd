@@ -10,7 +10,11 @@ signal cannot_steer_wheel
 var speed = 300.0
 var holding_cannon_ball: bool = false
 var holding_plank: bool = false
+@export var hole_scene: PackedScene
 
+func _ready() -> void:
+	hole_scene.instantiate().connect("repaired", _on_hole_area_body_entered)
+	
 
 func _physics_process(delta: float) -> void:
 	# Controls over player character disabled while steering ship
@@ -78,5 +82,6 @@ func _on_hole_area_body_entered(body: Node2D) -> void:
 		return
 	holding_plank = false
 	plank_drop.emit()
+	print("Emitted plank drop")
 	# TODO: Should remove hole
 	# TODO: Should also heal the ship

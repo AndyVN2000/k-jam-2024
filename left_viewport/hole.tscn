@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://chkyp2hj110ls"]
+
+[ext_resource type="Script" path="res://left_viewport/hole_area.gd" id="1_mlnhp"]
+[ext_resource type="Texture2D" uid="uid://dxtvjknuly8sq" path="res://art/props/hole_v2.png" id="2_5dogv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tiwbv"]
+size = Vector2(16, 16)
+
+[node name="HoleArea" type="Area2D"]
+z_index = 2
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_mlnhp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tiwbv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_5dogv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
