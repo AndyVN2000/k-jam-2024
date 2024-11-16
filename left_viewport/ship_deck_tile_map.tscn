@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://brag6ojr8mdyw"]
+[gd_scene load_steps=18 format=4 uid="uid://brag6ojr8mdyw"]
 
 [ext_resource type="Texture2D" uid="uid://da5w48n82yvx0" path="res://art/alpha_tile_set.png" id="1_7encj"]
 [ext_resource type="Texture2D" uid="uid://hmkhbpgkif2j" path="res://art/tilesets/ship_tileset.png" id="2_brfui"]
@@ -102,6 +102,9 @@ sources/2 = SubResource("TileSetAtlasSource_865wk")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogpfn"]
 size = Vector2(63, 43)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kg3gy"]
+size = Vector2(40, 34)
+
 [node name="ShipDeckTileMap" type="Node2D"]
 
 [node name="LayerHolder" type="Node2D" parent="."]
@@ -117,7 +120,7 @@ tile_set = SubResource("TileSet_xqimj")
 
 [node name="DeckWallLayer" type="TileMapLayer" parent="LayerHolder"]
 z_index = 2
-tile_map_data = PackedByteArray("AAAUABEAAAAEAAEAAAAVABEAAAAFAAEAAAA=")
+tile_map_data = PackedByteArray("AAAUABEAAAAEAAEAAAAVABEAAAAFAAEAAAAQABcAAQAAAAAAAAAQABgAAQAAAAEAAAARABcAAQABAAAAAAARABgAAQABAAEAAAARABkAAQABAAIAAAASABcAAQACAAAAAAASABgAAQACAAEAAAA=")
 tile_set = SubResource("TileSet_lfvwc")
 
 [node name="InteractableLayer" type="TileMapLayer" parent="LayerHolder"]
@@ -138,5 +141,14 @@ z_index = 2
 position = Vector2(336.5, 280.5)
 shape = SubResource("RectangleShape2D_ogpfn")
 
+[node name="CannonArea" type="Area2D" parent="."]
+collision_layer = 12
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CannonArea"]
+z_index = 2
+position = Vector2(280, 386)
+shape = SubResource("RectangleShape2D_kg3gy")
+
 [connection signal="body_entered" from="CannonBallResource" to="CharacterBody2D" method="_on_cannon_ball_resource_body_entered"]
-[connection signal="body_entered" from="CannonBallResource" to="CannonBallResource" method="_on_body_entered"]
+[connection signal="body_entered" from="CannonArea" to="CharacterBody2D" method="_on_cannon_area_body_entered"]

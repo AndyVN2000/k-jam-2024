@@ -29,3 +29,19 @@ func _on_cannon_ball_resource_body_entered(body: Node2D) -> void:
 		return
 	
 	holding_cannon_ball = true
+	print("You pick up a cannon ball")
+	# TODO: Update UI to indicate cannon ball is being held
+
+
+func _on_cannon_area_body_entered(body: Node2D) -> void:
+	# Bail out fast if not holding a cannon ball
+	if not holding_cannon_ball:
+		return
+	
+	holding_cannon_ball = false
+	print("FIRE AT WILL")
+	# TODO: Update UI to indicate cannon ball is no longer held
+	
+	# TODO: Harm some enemy ships
+	
+	pass # Replace with function body.
