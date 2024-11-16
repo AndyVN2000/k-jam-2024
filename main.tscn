@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://beprj65unhksn"]
+[gd_scene load_steps=8 format=3 uid="uid://beprj65unhksn"]
 
 [ext_resource type="PackedScene" uid="uid://737aqfe5a0mp" path="res://left_viewport/ship_deck_view.tscn" id="1_mbetu"]
 [ext_resource type="Script" path="res://main.gd" id="1_y5gon"]
@@ -11,6 +11,25 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 896, 192, 0, 0, 0, 0, 1152, 192, 0, 0, 0, 0, 1152, 448, 0, 0, 0, 0, 896, 448, 0, 0, 0, 0, 896, 192)
 }
 point_count = 5
+
+[sub_resource type="GDScript" id="GDScript_hmfir"]
+script/source = "extends TextureProgressBar
+
+@onready var ship = get_node(\"../SeaMapView/SubViewport/Ship\")
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	ship.hit_taken.connect(damaged)
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func damaged():
+	print(\"SHIP HAS BEEN DAMAGED\")
+"
 
 [node name="Main" type="Node"]
 script = ExtResource("1_y5gon")
@@ -34,5 +53,6 @@ offset_left = 704.0
 offset_top = 68.0
 offset_right = 736.0
 offset_bottom = 580.0
+script = SubResource("GDScript_hmfir")
 
 [connection signal="timeout" from="RockTimer" to="." method="_on_rock_timer_timeout"]
