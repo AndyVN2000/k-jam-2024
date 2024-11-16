@@ -2,7 +2,7 @@ extends Node
 
 @onready var rock_spawn_location = get_node("RockPath")
 @onready var ship = get_node("SeaMapView/SubViewport/Ship")
-@onready var player = get_node("ShipDeckView/SubViewport/ShipDeckTileMap/CharacterBody2D")
+@onready var player = get_node("ShipDeckView/SubViewport/ShipDeckTileMap/Player")
 @export var rock_scene: PackedScene
 var score
 var angle_width = deg_to_rad(60)

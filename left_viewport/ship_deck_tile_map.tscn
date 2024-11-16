@@ -1,13 +1,17 @@
-[gd_scene load_steps=24 format=4 uid="uid://brag6ojr8mdyw"]
+[gd_scene load_steps=33 format=4 uid="uid://brag6ojr8mdyw"]
 
+[ext_resource type="Script" path="res://left_viewport/ship_deck_tile_map.gd" id="1_02c3u"]
 [ext_resource type="Texture2D" uid="uid://da5w48n82yvx0" path="res://art/alpha_tile_set.png" id="1_7encj"]
 [ext_resource type="Texture2D" uid="uid://hmkhbpgkif2j" path="res://art/tilesets/ship_tileset.png" id="2_brfui"]
 [ext_resource type="Texture2D" uid="uid://dkw2u6jy7rlmw" path="res://art/tilesets/ship_tileset_v1.1.png" id="2_hhpto"]
 [ext_resource type="PackedScene" uid="uid://dmae8l515llnd" path="res://left_viewport/player.tscn" id="2_y84hh"]
+[ext_resource type="Texture2D" uid="uid://dxtvjknuly8sq" path="res://art/props/hole_v2.png" id="3_2c06q"]
 [ext_resource type="Texture2D" uid="uid://clrgrj20wxroe" path="res://art/props/cannon_down.png" id="3_qalg7"]
 [ext_resource type="Script" path="res://left_viewport/cannon_ball_resource.gd" id="4_21pyh"]
 [ext_resource type="Texture2D" uid="uid://d08ckuec1ov3v" path="res://art/props/cannon_up.png" id="4_sy5hw"]
 [ext_resource type="Texture2D" uid="uid://c7pomsifc2v34" path="res://art/props/wheel_v1.png" id="6_b2u5i"]
+[ext_resource type="Texture2D" uid="uid://x6ctm5pl6vxl" path="res://art/props/planks_v2.png" id="8_7vr2n"]
+[ext_resource type="Script" path="res://left_viewport/hole_layer.gd" id="8_13lpu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5u36"]
 texture = ExtResource("1_7encj")
@@ -68,9 +72,14 @@ texture = ExtResource("2_hhpto")
 1:5/0 = 0
 3:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u1mvc"]
+texture = ExtResource("3_2c06q")
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_xqimj"]
 sources/0 = SubResource("TileSetAtlasSource_sxmli")
 sources/1 = SubResource("TileSetAtlasSource_f040i")
+sources/2 = SubResource("TileSetAtlasSource_u1mvc")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sdpy4"]
 texture = ExtResource("2_brfui")
@@ -143,6 +152,15 @@ texture = ExtResource("6_b2u5i")
 0:2/0 = 0
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, -8, 3.875, -3.75, 8, -3.875, 8, -8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_elceg"]
+texture = ExtResource("8_7vr2n")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.875, -5.875, -5.875, 8, 8, 8, 8, -6)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -6.25, -8, 8, 6, 8, 6, -6.125)
+0:1/0 = 0
+1:1/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_lfvwc"]
 physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 3
@@ -150,8 +168,14 @@ sources/0 = SubResource("TileSetAtlasSource_sdpy4")
 sources/1 = SubResource("TileSetAtlasSource_s4h1m")
 sources/2 = SubResource("TileSetAtlasSource_865wk")
 sources/3 = SubResource("TileSetAtlasSource_coqbu")
+sources/4 = SubResource("TileSetAtlasSource_elceg")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_orkfo"]
+texture = ExtResource("3_2c06q")
+0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_snph5"]
+sources/2 = SubResource("TileSetAtlasSource_orkfo")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogpfn"]
 size = Vector2(63, 43)
@@ -187,7 +211,14 @@ func _on_body_exited(body: Node2D) -> void:
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kclnw"]
 size = Vector2(27, 36)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tiwbv"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agv8w"]
+size = Vector2(44, 29)
+
 [node name="ShipDeckTileMap" type="Node2D"]
+script = ExtResource("1_02c3u")
 
 [node name="LayerHolder" type="Node2D" parent="."]
 
@@ -202,13 +233,15 @@ tile_set = SubResource("TileSet_xqimj")
 
 [node name="DeckWallLayer" type="TileMapLayer" parent="LayerHolder"]
 z_index = 2
-tile_map_data = PackedByteArray("AAAUABEAAAAEAAEAAAAVABEAAAAFAAEAAAAQABcAAQAAAAAAAAAQABgAAQAAAAEAAAARABcAAQABAAAAAAARABgAAQABAAEAAAARABkAAQABAAIAAAASABcAAQACAAAAAAASABgAAQACAAEAAAANABEAAwAAAAAAAAANABIAAwAAAAEAAAANABMAAwAAAAIAAAAOABIAAwABAAEAAAA=")
+tile_map_data = PackedByteArray("AAAUABEAAAAEAAEAAAAVABEAAAAFAAEAAAAQABcAAQAAAAAAAAAQABgAAQAAAAEAAAARABcAAQABAAAAAAARABgAAQABAAEAAAARABkAAQABAAIAAAASABcAAQACAAAAAAASABgAAQACAAEAAAANABEAAwAAAAAAAAANABIAAwAAAAEAAAANABMAAwAAAAIAAAAOABIAAwABAAEAAAAQAA0ABAAAAAAAAAAQAA4ABAAAAAEAAAARAA0ABAABAAAAAAARAA4ABAABAAEAAAA=")
 tile_set = SubResource("TileSet_lfvwc")
 
-[node name="InteractableLayer" type="TileMapLayer" parent="LayerHolder"]
+[node name="HoleLayer" type="TileMapLayer" parent="LayerHolder"]
+z_index = 2
 tile_set = SubResource("TileSet_snph5")
+script = ExtResource("8_13lpu")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_y84hh")]
+[node name="Player" parent="." instance=ExtResource("2_y84hh")]
 z_index = 2
 position = Vector2(280, 300)
 collision_mask = 13
@@ -242,6 +275,32 @@ z_index = 1
 position = Vector2(211.5, 299)
 shape = SubResource("RectangleShape2D_kclnw")
 
-[connection signal="body_entered" from="CannonBallResource" to="CharacterBody2D" method="_on_cannon_ball_resource_body_entered"]
-[connection signal="body_entered" from="CannonArea" to="CharacterBody2D" method="_on_cannon_area_body_entered"]
-[connection signal="body_entered" from="WheelArea" to="CharacterBody2D" method="_on_wheel_area_body_entered"]
+[node name="HoleArea" type="Area2D" parent="."]
+z_index = 2
+position = Vector2(233, 272)
+collision_layer = 8
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HoleArea"]
+shape = SubResource("RectangleShape2D_tiwbv")
+
+[node name="Sprite2D" type="Sprite2D" parent="HoleArea"]
+texture = ExtResource("3_2c06q")
+
+[node name="PlanksArea" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(271, 215)
+collision_layer = 8
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlanksArea"]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_agv8w")
+
+[connection signal="body_entered" from="CannonBallResource" to="Player" method="_on_cannon_ball_resource_body_entered"]
+[connection signal="body_entered" from="CannonArea" to="Player" method="_on_cannon_area_body_entered"]
+[connection signal="body_entered" from="WheelArea" to="Player" method="_on_wheel_area_body_entered"]
+[connection signal="body_entered" from="HoleArea" to="Player" method="_on_hole_area_body_entered"]
+[connection signal="body_entered" from="PlanksArea" to="Player" method="_on_planks_area_body_entered"]

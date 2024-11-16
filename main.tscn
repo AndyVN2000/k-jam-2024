@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://beprj65unhksn"]
+[gd_scene load_steps=11 format=3 uid="uid://beprj65unhksn"]
 
 [ext_resource type="PackedScene" uid="uid://737aqfe5a0mp" path="res://left_viewport/ship_deck_view.tscn" id="1_mbetu"]
 [ext_resource type="Script" path="res://main.gd" id="1_y5gon"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bsa6ivxirf03r" path="res://gui/ship_health.tscn" id="5_pwijg"]
 [ext_resource type="Script" path="res://cannon_ball_container.gd" id="6_ocguf"]
 [ext_resource type="Texture2D" uid="uid://8oyluv6m5gth" path="res://gui/item_frame.png" id="6_tdor3"]
+[ext_resource type="Script" path="res://plank_container.gd" id="8_01oh7"]
 
 [sub_resource type="Curve2D" id="Curve2D_c74ci"]
 _data = {
@@ -70,6 +71,18 @@ offset_bottom = 427.0
 script = ExtResource("6_ocguf")
 
 [node name="TextureRect" type="TextureRect" parent="CannonBallContainer"]
+layout_mode = 2
+texture = ExtResource("6_tdor3")
+
+[node name="PlankContainer" type="Container" parent="."]
+offset_left = 616.0
+offset_top = 296.0
+offset_right = 675.0
+offset_bottom = 355.0
+script = ExtResource("8_01oh7")
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="PlankContainer"]
 layout_mode = 2
 texture = ExtResource("6_tdor3")
 
