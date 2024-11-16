@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfxfddmw86v3l"]
+
+[ext_resource type="PackedScene" uid="uid://besrp0y36utci" path="res://ship.tscn" id="1_1ewl2"]
+[ext_resource type="PackedScene" uid="uid://dqo13aryubtnr" path="res://rock.tscn" id="2_tbwp4"]
+
+[node name="SeaMap" type="Node"]
+
+[node name="Ship" parent="." instance=ExtResource("1_1ewl2")]
+
+[node name="Rock" parent="." instance=ExtResource("2_tbwp4")]
+position = Vector2(795, 226)
