@@ -16,6 +16,7 @@ point_count = 5
 script/source = "extends TextureProgressBar
 
 @onready var ship = get_node(\"../SeaMapView/SubViewport/Ship\")
+signal game_over
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,6 +32,8 @@ func _process(delta: float) -> void:
 func damaged():
 	value += 10
 	print(\"SHIP HAS BEEN DAMAGED\")
+	if value >= 100:
+		game_over.emit()
 "
 
 [node name="Main" type="Node"]
@@ -58,3 +61,4 @@ offset_bottom = 580.0
 script = SubResource("GDScript_hmfir")
 
 [connection signal="timeout" from="RockTimer" to="." method="_on_rock_timer_timeout"]
+[connection signal="game_over" from="ShipHealth" to="." method="_on_ship_health_game_over"]

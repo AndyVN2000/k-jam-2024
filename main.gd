@@ -63,3 +63,8 @@ func get_points_within_angle(center: Vector2, direction: Vector2, angle_width: f
 		if dot >= cos_max_angle:
 			points_within_angle.append(point)
 	return points_within_angle
+
+
+func _on_ship_health_game_over() -> void:
+	print("GAME OVER")
+	pass # Replace with function body.
