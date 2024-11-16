@@ -1,30 +1,33 @@
 SeaMap Ship scene
 - Rotation (DONE)
 - Collision detection (DONE)
-- Rock generation
+- Rock generation (BASICS DONE)
 -- Basic rock generation (DONE)
 -- Advanced rock generation
 -- Physics
-- Hull damage
 
 ShipMap scene
 - The viewport itself (DONE)
 - TileSets and -Map of deck (DONE)
 - Visible hull damage
-- Player unit
--- Can move (DONE)
--- Movement inside tile map (DONE)
--- Collision against obstacles - preventing movement
--- Interact with Ship
---- Switch mode to controlling the wheel
---- Exit mode to control the wheel
---- Collect items
---- Repair hull
---- Fire cannon
 - Resource stations
 -- Plank bundle
 -- Cannonballs
-- Hull/health
+- Hull/health (DONE)
+-- Health update upon damage (DONE)
+-- Game over
+-- Healing upon repair
+
+ 
+Player scene
+- Can move (DONE)
+- Movement inside tile map (DONE)
+- Collision against obstacles - preventing movement
+- Interact with Ship
+-- Switch mode to controlling the wheel-- Exit mode to control the wheel
+-- Collect items
+-- Repair hull
+-- Fire cannon
 
 Rock scene
 - movement in relation to ship (DONE)
