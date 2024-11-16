@@ -2,20 +2,30 @@ extends Node
 
 @onready var rock_spawn_location = get_node("RockPath")
 @onready var ship = get_node("SeaMapView/SubViewport/Ship")
+@onready var player = get_node("ShipDeckView/SubViewport/ShipDeckTileMap/CharacterBody2D")
 @export var rock_scene: PackedScene
 var score
 var angle_width = deg_to_rad(60)
+var can_steer_wheel = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$RockTimer.start()
+	
+	player.can_steer_wheel.connect(wheel)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if can_steer_wheel and Input.is_action_pressed("steer_ship"):
+		player.add_to_group("disabled_scripts")
 
 
+func wheel():
+	can_steer_wheel = true
+
+
+# Translates global positions to the coordinate system of the sea map view
 func global_to_viewport_local(global_position: Vector2) -> Vector2:
 	# Subtract the reference position (manual origin) from the global position
 	var local_position = global_position - $SeaMapView.position

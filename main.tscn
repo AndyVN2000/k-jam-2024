@@ -75,3 +75,6 @@ texture = ExtResource("6_tdor3")
 
 [connection signal="timeout" from="RockTimer" to="." method="_on_rock_timer_timeout"]
 [connection signal="game_over" from="ShipHealth" to="." method="_on_ship_health_game_over"]
+
+[editable path="ShipDeckView"]
+[editable path="ShipDeckView/SubViewport/ShipDeckTileMap"]
