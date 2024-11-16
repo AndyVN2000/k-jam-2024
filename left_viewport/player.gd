@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal cannon_ball_pickup
+signal cannon_ball_drop
 
 var speed = 300.0
 var holding_cannon_ball: bool = false
@@ -28,10 +29,7 @@ func _on_cannon_ball_resource_body_entered(body: Node2D) -> void:
 	# Bail out fast if already holding cannon ball
 	if holding_cannon_ball:
 		return
-	
 	holding_cannon_ball = true
-	print("You pick up a cannon ball")
-	# TODO: Update UI to indicate cannon ball is being held
 	cannon_ball_pickup.emit()
 
 
@@ -39,11 +37,10 @@ func _on_cannon_area_body_entered(body: Node2D) -> void:
 	# Bail out fast if not holding a cannon ball
 	if not holding_cannon_ball:
 		return
-	
 	holding_cannon_ball = false
 	print("FIRE AT WILL")
 	# TODO: Update UI to indicate cannon ball is no longer held
-	
+	cannon_ball_drop.emit()
 	# TODO: Harm some enemy ships
 	
 	pass # Replace with function body.

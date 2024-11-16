@@ -1,6 +1,7 @@
 extends Container
 
 @onready var player = get_node("../ShipDeckView/SubViewport/ShipDeckTileMap/CharacterBody2D")
+var cannon_ball_image: TextureRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,9 +14,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_cannon_ball_pickup():
-	var cannon_ball = TextureRect.new()
+	cannon_ball_image = TextureRect.new()
 	var image = preload("res://gui/cannon_ball_v1.png")
-	cannon_ball.texture = image
-	cannon_ball.z_index = 5
-	add_child(cannon_ball)
-	print(get_child_count())
+	cannon_ball_image.texture = image
+	add_child(cannon_ball_image)
