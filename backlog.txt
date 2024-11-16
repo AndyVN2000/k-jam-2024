@@ -17,22 +17,26 @@ ShipMap scene
 - Hull/health (DONE)
 -- Health update upon damage (DONE)
 -- Game over
--- Healing upon repair
+-- Healing upon repair (DONE)
 
  
 Player scene
 - Can move (DONE)
 - Movement inside tile map (DONE)
-- Collision against obstacles - preventing movement
-- Interact with Ship
+- Collision against obstacles - preventing movement (DONE)
+- Interact with Ship (DONE)
 -- Switch mode to controlling the wheel-- Exit mode to control the wheel (DONE)
--- Collect items
--- Repair hull
--- Fire cannon
+-- Collect items (DONE)
+-- Repair hull (DONE)
+-- Fire cannon (DONE)
 
 Rock scene
 - movement in relation to ship (DONE)
 - Collision detection (DONE)
+
+Enemy ships
+- Causes hull damage
+- Can be defeated
 
 BUGS
 - Rocks disappear when ship hits one while not in control (FIXED)
