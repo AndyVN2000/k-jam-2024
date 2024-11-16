@@ -97,7 +97,6 @@ layout_mode = 2
 texture = ExtResource("6_tdor3")
 
 [connection signal="body_exited" from="ShipDeckView/SubViewport/ShipDeckTileMap/WheelArea" to="ShipDeckView/SubViewport/ShipDeckTileMap/Player" method="_on_wheel_area_body_exited"]
-[connection signal="repaired" from="ShipDeckView/SubViewport/ShipDeckTileMap/HoleArea" to="ShipHealth" method="_on_hole_area_repaired"]
 [connection signal="timeout" from="RockTimer" to="." method="_on_rock_timer_timeout"]
 [connection signal="game_over" from="ShipHealth" to="." method="_on_ship_health_game_over"]
 

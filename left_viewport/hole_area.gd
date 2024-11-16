@@ -1,8 +1,5 @@
 extends Area2D
 
-signal repaired
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -17,6 +14,6 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if not body.holding_plank:
 		return
-	repaired.emit()
+	SignalBus.on_repair.emit()
 	print("Repaired emitted")
 	queue_free()

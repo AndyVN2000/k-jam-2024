@@ -13,7 +13,7 @@ var holding_plank: bool = false
 @export var hole_scene: PackedScene
 
 func _ready() -> void:
-	hole_scene.instantiate().connect("repaired", _on_hole_area_body_entered)
+	SignalBus.on_repair.connect(_on_repair)
 	
 
 func _physics_process(delta: float) -> void:
@@ -76,7 +76,7 @@ func _on_planks_area_body_entered(body: Node2D) -> void:
 	plank_pickup.emit()
 
 
-func _on_hole_area_body_entered(body: Node2D) -> void:
+func _on_repair() -> void:
 	# Bail out fast if not holding a plank
 	if not holding_plank:
 		return
