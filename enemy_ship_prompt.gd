@@ -19,10 +19,13 @@ func _on_enemy_ship_timer_timeout() -> void:
 	health = 3
 	$FlashingPrompt.start()
 	$EnemyShipTimer.stop()
+	$AttackTimer.start()
 
 
 func _on_return_fire():
 	health -= 1
+	# Enemy has been defeated
 	if health <= 0:
 		$FlashingPrompt.stop()
+		$AttackTimer.stop()
 		$EnemyShipTimer.start()

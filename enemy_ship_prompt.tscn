@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://pg1jr7hctv08"]
+[gd_scene load_steps=4 format=3 uid="uid://pg1jr7hctv08"]
 
 [ext_resource type="Script" path="res://enemy_ship_prompt.gd" id="1_kq8yt"]
 [ext_resource type="Script" path="res://flashing_prompt.gd" id="2_2lhen"]
+[ext_resource type="Script" path="res://attack_timer.gd" id="3_t5pge"]
 
 [node name="EnemyShipPrompt" type="Label"]
 visible = false
@@ -20,5 +21,10 @@ one_shot = true
 [node name="FlashingPrompt" type="Timer" parent="."]
 script = ExtResource("2_2lhen")
 
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 5.0
+script = ExtResource("3_t5pge")
+
 [connection signal="timeout" from="EnemyShipTimer" to="." method="_on_enemy_ship_timer_timeout"]
 [connection signal="timeout" from="FlashingPrompt" to="FlashingPrompt" method="_on_timeout"]
+[connection signal="timeout" from="AttackTimer" to="AttackTimer" method="_on_timeout"]

@@ -4,13 +4,13 @@ extends Node2D
 @onready var hole_cells: TileMapLayer = get_node("LayerHolder/HoleLayer")
 @export var hole_scene: PackedScene
 
-const top_left = Vector2(0, 0)
-const bottom_right = Vector2(36, 31)
+const top_left = Vector2(0, 9)
+const bottom_right = Vector2(36, 24)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ship.connect("hit_taken", _create_hole)
-	pass # Replace with function body.
+	SignalBus.on_enemy_attack.connect(_create_hole)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,8 +28,8 @@ func _create_hole():
 
 func get_random_tile_coordinate():
 	# Get a random position within the defined area
-	var x = randi() % int((bottom_right.x - top_left.x + 1) + top_left.x)
-	var y = randi() % int((bottom_right.y - top_left.y + 1) + top_left.y)
+	var x = randi() % int((bottom_right.x - top_left.x) + top_left.x)
+	var y = randi() % int((bottom_right.y - top_left.y) + top_left.y)
 	
 	var cell = hole_cells.map_to_local(Vector2(x, y))
 	return cell
