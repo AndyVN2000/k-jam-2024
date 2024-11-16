@@ -13,6 +13,8 @@ ShipMap scene
 - Visible hull damage
 - Player unit
 -- Can move (DONE)
+-- Movement inside tile map (DONE)
+-- Collision against obstacles - preventing movement
 -- Interact with Ship
 --- Switch mode to controlling the wheel
 --- Exit mode to control the wheel

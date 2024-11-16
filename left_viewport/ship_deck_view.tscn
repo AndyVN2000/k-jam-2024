@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://737aqfe5a0mp"]
 
-[ext_resource type="Texture2D" uid="uid://bjmseytsi6fre" path="res://art/ship_deck_sea_background.png" id="1_1v3km"]
+[ext_resource type="PackedScene" uid="uid://cmaa18tjovbsb" path="res://ship_deck_tile_map.tscn" id="2_opsjh"]
 
 [node name="ShipDeckView" type="SubViewportContainer"]
 anchors_preset = 4
@@ -17,13 +17,4 @@ handle_input_locally = false
 size = Vector2i(576, 512)
 render_target_update_mode = 4
 
-[node name="TextureRect" type="TextureRect" parent="SubViewport"]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_1v3km")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-custom_minimum_size = Vector2(576, 512)
-layout_mode = 2
+[node name="ShipDeckTileMap" parent="SubViewport" instance=ExtResource("2_opsjh")]
