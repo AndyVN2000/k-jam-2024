@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bsa6ivxirf03r"]
+
+[node name="ShipHealth" type="TextureProgressBar"]
+offset_right = 40.0
+offset_bottom = 40.0
