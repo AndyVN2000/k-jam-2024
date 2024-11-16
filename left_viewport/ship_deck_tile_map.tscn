@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://da5w48n82yvx0" path="res://art/alpha_tile_set.png" id="1_7encj"]
 [ext_resource type="Texture2D" uid="uid://hmkhbpgkif2j" path="res://art/tilesets/ship_tileset.png" id="2_brfui"]
 [ext_resource type="PackedScene" uid="uid://dmae8l515llnd" path="res://left_viewport/player.tscn" id="2_y84hh"]
-[ext_resource type="Texture2D" uid="uid://clrgrj20wxroe" path="res://art/Cannon/cannon_down.png" id="3_qalg7"]
+[ext_resource type="Texture2D" uid="uid://clrgrj20wxroe" path="res://art/props/cannon_down.png" id="3_qalg7"]
 [ext_resource type="Script" path="res://left_viewport/cannon_ball_resource.gd" id="4_21pyh"]
-[ext_resource type="Texture2D" uid="uid://d08ckuec1ov3v" path="res://art/Cannon/cannon_up.png" id="4_sy5hw"]
+[ext_resource type="Texture2D" uid="uid://d08ckuec1ov3v" path="res://art/props/cannon_up.png" id="4_sy5hw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5u36"]
 texture = ExtResource("1_7encj")

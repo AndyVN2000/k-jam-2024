@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clrgrj20wxroe"
-path="res://.godot/imported/cannon_down.png-db817961a3a1beee56e41ace547597df.ctex"
+uid="uid://d08ckuec1ov3v"
+path="res://.godot/imported/cannon_up.png-04de94a5f6d4e10795382c778c651492.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Cannon/cannon_down.png"
-dest_files=["res://.godot/imported/cannon_down.png-db817961a3a1beee56e41ace547597df.ctex"]
+source_file="res://art/props/cannon_up.png"
+dest_files=["res://.godot/imported/cannon_up.png-04de94a5f6d4e10795382c778c651492.ctex"]
 
 [params]
 
