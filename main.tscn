@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://beprj65unhksn"]
+[gd_scene load_steps=7 format=3 uid="uid://beprj65unhksn"]
 
 [ext_resource type="PackedScene" uid="uid://737aqfe5a0mp" path="res://left_viewport/ship_deck_view.tscn" id="1_mbetu"]
 [ext_resource type="Script" path="res://main.gd" id="1_y5gon"]
 [ext_resource type="PackedScene" uid="uid://bfxfddmw86v3l" path="res://right_viewport/sea_map.tscn" id="2_hucxx"]
 [ext_resource type="PackedScene" uid="uid://dqo13aryubtnr" path="res://right_viewport/rock.tscn" id="2_nik6d"]
+[ext_resource type="PackedScene" uid="uid://bsa6ivxirf03r" path="res://gui/ship_health.tscn" id="5_pwijg"]
 
 [sub_resource type="Curve2D" id="Curve2D_c74ci"]
 _data = {
@@ -27,5 +28,11 @@ position = Vector2(896, 192)
 [node name="SeaMapView" parent="." instance=ExtResource("2_hucxx")]
 
 [node name="RockTimer" type="Timer" parent="."]
+
+[node name="ShipHealth" parent="." instance=ExtResource("5_pwijg")]
+offset_left = 704.0
+offset_top = 68.0
+offset_right = 736.0
+offset_bottom = 580.0
 
 [connection signal="timeout" from="RockTimer" to="." method="_on_rock_timer_timeout"]
