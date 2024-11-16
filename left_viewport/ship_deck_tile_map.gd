@@ -28,8 +28,8 @@ func _create_hole():
 
 func get_random_tile_coordinate():
 	# Get a random position within the defined area
-	var x = randi() % int((bottom_right.x - top_left.x) + top_left.x)
-	var y = randi() % int((bottom_right.y - top_left.y) + top_left.y)
+	var x = randi() % int(bottom_right.x - top_left.x)
+	var y = (randi() % int(bottom_right.y - top_left.y)) + top_left.y
 	
 	var cell = hole_cells.map_to_local(Vector2(x, y))
 	return cell
