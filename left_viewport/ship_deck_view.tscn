@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://737aqfe5a0mp"]
 
-[ext_resource type="PackedScene" uid="uid://cmaa18tjovbsb" path="res://ship_deck_tile_map.tscn" id="2_opsjh"]
+[ext_resource type="PackedScene" uid="uid://cmaa18tjovbsb" path="res://left_viewport/ship_deck_tile_map.tscn" id="2_opsjh"]
 
 [node name="ShipDeckView" type="SubViewportContainer"]
 anchors_preset = 4
