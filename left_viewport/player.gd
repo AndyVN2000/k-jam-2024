@@ -55,6 +55,7 @@ func _on_cannon_area_body_entered(body: Node2D) -> void:
 	print("FIRE AT WILL")
 	cannon_ball_drop.emit()
 	# TODO: Harm some enemy ships
+	SignalBus.on_return_fire.emit()
 	
 	pass # Replace with function body.
 
@@ -69,7 +70,6 @@ func _on_wheel_area_body_exited(body: Node2D) -> void:
 
 func _on_planks_area_body_entered(body: Node2D) -> void:
 	# Bail out fast if already holding plank
-	print("You pick up a plank")
 	if holding_plank:
 		return
 	holding_plank = true

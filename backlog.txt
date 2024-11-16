@@ -19,7 +19,6 @@ ShipMap scene
 -- Game over
 -- Healing upon repair (DONE)
 
- 
 Player scene
 - Can move (DONE)
 - Movement inside tile map (DONE)
