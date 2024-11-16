@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
+signal cannon_ball_pickup
+
 var speed = 300.0
 var holding_cannon_ball: bool = false
-
 
 func _physics_process(delta: float) -> void:
 	var velocity = Vector2.ZERO # The player's movement vector.
@@ -31,6 +32,7 @@ func _on_cannon_ball_resource_body_entered(body: Node2D) -> void:
 	holding_cannon_ball = true
 	print("You pick up a cannon ball")
 	# TODO: Update UI to indicate cannon ball is being held
+	cannon_ball_pickup.emit()
 
 
 func _on_cannon_area_body_entered(body: Node2D) -> void:
