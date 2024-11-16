@@ -12,7 +12,7 @@ ShipMap scene
 - Visible hull damage
 - Resource stations
 -- Plank bundle
--- Cannonballs
+-- Cannonballs (DONE)
 - Hull/health (DONE)
 -- Health update upon damage (DONE)
 -- Game over
@@ -24,7 +24,7 @@ Player scene
 - Movement inside tile map (DONE)
 - Collision against obstacles - preventing movement
 - Interact with Ship
--- Switch mode to controlling the wheel-- Exit mode to control the wheel
+-- Switch mode to controlling the wheel-- Exit mode to control the wheel (DONE)
 -- Collect items
 -- Repair hull
 -- Fire cannon
