@@ -23,7 +23,7 @@ one_shot = true
 script = ExtResource("2_2lhen")
 
 [node name="AttackTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 script = ExtResource("3_t5pge")
 
 [node name="CannonFire" parent="AttackTimer" instance=ExtResource("4_28x65")]
