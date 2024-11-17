@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var ship = get_node("../Ship")
-var speed = 100
+var speed = 25
 var course: Vector2
 
 # Called when the node enters the scene tree for the first time.
