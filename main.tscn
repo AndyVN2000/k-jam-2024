@@ -174,9 +174,12 @@ curve = SubResource("Curve2D_jhxwo")
 [node name="RockSpawnLocation" type="PathFollow2D" parent="RockPath"]
 position = Vector2(648, 152)
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="body_exited" from="ShipDeckView/SubViewport/ShipDeckTileMap/WheelArea" to="ShipDeckView/SubViewport/ShipDeckTileMap/Player" method="_on_wheel_area_body_exited"]
 [connection signal="timeout" from="RockTimer" to="." method="_on_rock_timer_timeout"]
 [connection signal="game_over" from="ShipHealth" to="." method="_on_ship_health_game_over"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="ShipDeckView"]
 [editable path="ShipDeckView/SubViewport/ShipDeckTileMap"]

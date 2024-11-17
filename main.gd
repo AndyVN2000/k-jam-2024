@@ -9,11 +9,12 @@ extends Node
 var score
 var angle_width = deg_to_rad(60)
 var can_steer_wheel = false
+var time = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$RockTimer.start()
-	
+	$Timer.start()
 	player.can_steer_wheel.connect(wheel)
 	player.cannot_steer_wheel.connect(no_wheel)
 
@@ -92,6 +93,13 @@ func _on_ship_health_game_over() -> void:
 	for child in children:
 		child.queue_free()
 	
-	add_child(game_over_scene.instantiate())
+	var game_over = game_over_scene.instantiate()
+	game_over.text = game_over.text + "\n You survived for " + str(time) + " seconds"
+	
+	add_child(game_over)
 	
 	pass # Replace with function body.
+
+
+func _on_timer_timeout() -> void:
+	time += 1
