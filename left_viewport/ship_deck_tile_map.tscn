@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://brag6ojr8mdyw"]
+[gd_scene load_steps=30 format=4 uid="uid://brag6ojr8mdyw"]
 
 [ext_resource type="Script" path="res://left_viewport/ship_deck_tile_map.gd" id="1_02c3u"]
 [ext_resource type="Texture2D" uid="uid://da5w48n82yvx0" path="res://art/alpha_tile_set.png" id="1_7encj"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://left_viewport/cannon_ball_resource.gd" id="4_21pyh"]
 [ext_resource type="TileSet" uid="uid://wi61hmw1pwpq" path="res://left_viewport/tilesetDeckWithCollision.tres" id="4_ylrjg"]
 [ext_resource type="Script" path="res://left_viewport/hole_layer.gd" id="8_13lpu"]
+[ext_resource type="Texture2D" uid="uid://cbi6lhmp5mo1m" path="res://art/smoke_from_cannon.png" id="9_7382r"]
 [ext_resource type="PackedScene" uid="uid://chkyp2hj110ls" path="res://left_viewport/hole.tscn" id="13_2jumd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5u36"]
@@ -35,6 +36,84 @@ size = Vector2(63, 43)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kg3gy"]
 size = Vector2(40, 34)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg3hr"]
+atlas = ExtResource("9_7382r")
+region = Rect2(160, 96, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uc7wo"]
+atlas = ExtResource("9_7382r")
+region = Rect2(0, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnmbb"]
+atlas = ExtResource("9_7382r")
+region = Rect2(80, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sasy3"]
+atlas = ExtResource("9_7382r")
+region = Rect2(160, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfl40"]
+atlas = ExtResource("9_7382r")
+region = Rect2(0, 48, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6aky2"]
+atlas = ExtResource("9_7382r")
+region = Rect2(80, 48, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp7bu"]
+atlas = ExtResource("9_7382r")
+region = Rect2(160, 48, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1ta0"]
+atlas = ExtResource("9_7382r")
+region = Rect2(0, 96, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4s302"]
+atlas = ExtResource("9_7382r")
+region = Rect2(80, 96, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m602g"]
+atlas = ExtResource("9_7382r")
+region = Rect2(160, 96, 80, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0u1cb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg3hr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uc7wo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnmbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sasy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfl40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6aky2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qp7bu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1ta0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4s302")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m602g")
+}],
+"loop": false,
+"name": &"smoke",
+"speed": 10.0
+}]
+
 [sub_resource type="GDScript" id="GDScript_2073q"]
 script/source = "extends Area2D
 
@@ -58,6 +137,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_body_exited(body: Node2D) -> void:
 	cannot_steer_wheel.emit()
+	
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kclnw"]
@@ -117,6 +197,14 @@ collision_mask = 2
 z_index = 2
 position = Vector2(312, 332)
 shape = SubResource("RectangleShape2D_kg3gy")
+
+[node name="CannonSmoke" type="AnimatedSprite2D" parent="CannonArea"]
+z_index = 10
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_0u1cb")
+animation = &"smoke"
+frame_progress = 0.118795
+offset = Vector2(296, 359)
 
 [node name="WheelArea" type="Area2D" parent="."]
 collision_layer = 8

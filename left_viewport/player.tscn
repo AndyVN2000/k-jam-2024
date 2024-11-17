@@ -389,7 +389,7 @@ shape = SubResource("RectangleShape2D_1l1id")
 texture_filter = 1
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_x8o66")
-animation = &"walk_right"
+animation = &"walk_up"
 
 [node name="CannonFire" parent="." instance=ExtResource("7_6m5eq")]
 

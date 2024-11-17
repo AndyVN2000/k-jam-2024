@@ -69,6 +69,9 @@ transparent_bg = true
 [node name="Player" parent="ShipDeckView/SubViewport/ShipDeckTileMap" index="1"]
 hole_scene = ExtResource("4_6t18t")
 
+[node name="CannonSmoke" parent="ShipDeckView/SubViewport/ShipDeckTileMap/CannonArea" index="1"]
+frame_progress = 0.0
+
 [node name="RockPath" type="Path2D" parent="."]
 position = Vector2(-245, -43)
 curve = SubResource("Curve2D_c74ci")

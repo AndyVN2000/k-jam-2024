@@ -7,6 +7,8 @@ signal plank_drop
 signal can_steer_wheel
 signal cannot_steer_wheel
 
+@onready var smoke = get_node("../CannonArea/CannonSmoke")
+
 var speed = 150.0
 var holding_cannon_ball: bool = false
 var holding_plank: bool = false
@@ -25,6 +27,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 		$AnimatedSprite2D.animation = "walk_right"
+		$AnimatedSprite2D.play()
 	if Input.is_action_pressed("move_left"):
 		$AnimatedSprite2D.animation = "walk_left"
 		$AnimatedSprite2D.play()
@@ -61,6 +64,10 @@ func _on_cannon_area_body_entered(body: Node2D) -> void:
 	holding_cannon_ball = false
 	cannon_ball_drop.emit()
 	SignalBus.on_return_fire.emit()
+	
+	print(smoke)
+	smoke.animation = "smoke"
+	smoke.play()
 	
 	$CannonFire.play()
 
