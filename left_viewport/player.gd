@@ -92,10 +92,12 @@ func _on_cannon_area_body_entered(body: Node2D) -> void:
 	$CannonFire.play()
 
 func _on_wheel_area_body_entered(body: Node2D) -> void:
+	$WheelPrompt.visible = true
 	can_steer_wheel.emit()
 
 
 func _on_wheel_area_body_exited(body: Node2D) -> void:
+	$WheelPrompt.visible = false
 	cannot_steer_wheel.emit()
 
 

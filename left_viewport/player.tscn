@@ -372,7 +372,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(0, -8)
+position = Vector2(-1, -5)
 collision_layer = 2
 script = ExtResource("1_nn1co")
 metadata/_edit_group_ = true
@@ -397,3 +397,11 @@ animation = &"walk_up"
 z_index = -1
 position = Vector2(0, 12)
 texture = ExtResource("8_sh6xf")
+
+[node name="WheelPrompt" type="Label" parent="."]
+visible = false
+offset_left = -77.0
+offset_top = -45.0
+offset_right = 78.0
+offset_bottom = -22.0
+text = "Press Space to steer"
