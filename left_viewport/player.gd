@@ -24,11 +24,18 @@ func _physics_process(delta: float) -> void:
 	var velocity = Vector2.ZERO # The player's movement vector.
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
+		$AnimatedSprite2D.animation = "walk_right"
 	if Input.is_action_pressed("move_left"):
+		$AnimatedSprite2D.animation = "walk_left"
+		$AnimatedSprite2D.play()
 		velocity.x -= 1
 	if Input.is_action_pressed("move_down"):
+		$AnimatedSprite2D.animation = "walk_down"
+		$AnimatedSprite2D.play()
 		velocity.y += 1
 	if Input.is_action_pressed("move_up"):
+		$AnimatedSprite2D.animation = "walk_up"
+		$AnimatedSprite2D.play()
 		velocity.y -= 1
 
 	if velocity.length() > 0:
