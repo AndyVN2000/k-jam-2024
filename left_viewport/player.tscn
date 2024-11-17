@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://dmae8l515llnd"]
+[gd_scene load_steps=59 format=3 uid="uid://dmae8l515llnd"]
 
 [ext_resource type="Texture2D" uid="uid://bd5fixjxihgfl" path="res://art/player_sprite_v1.1.png" id="1_hld6b"]
 [ext_resource type="Script" path="res://left_viewport/player.gd" id="1_nn1co"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dwdooxucuf3p5" path="res://art/animation/player_animation/walk_up.png" id="4_ffqs6"]
 [ext_resource type="Texture2D" uid="uid://cpo1hxe7ghhpd" path="res://art/animation/player_animation/walk_right.png" id="5_lhkah"]
 [ext_resource type="PackedScene" uid="uid://c38spdfpwxnhv" path="res://audio/cannon_fire.tscn" id="7_6m5eq"]
+[ext_resource type="Texture2D" uid="uid://cbvr6tl6nyc8" path="res://art/player_shadow.png" id="8_sh6xf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1l1id"]
 size = Vector2(16, 16)
@@ -385,8 +386,14 @@ position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_1l1id")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_x8o66")
 animation = &"walk_right"
 
 [node name="CannonFire" parent="." instance=ExtResource("7_6m5eq")]
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, 12)
+texture = ExtResource("8_sh6xf")

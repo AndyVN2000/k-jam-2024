@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://cannon_ball_container.gd" id="6_ocguf"]
 [ext_resource type="Texture2D" uid="uid://8oyluv6m5gth" path="res://gui/item_frame.png" id="6_tdor3"]
 [ext_resource type="Script" path="res://plank_container.gd" id="8_01oh7"]
-[ext_resource type="PackedScene" path="res://enemy_ship_prompt.tscn" id="10_e2ius"]
+[ext_resource type="PackedScene" uid="uid://pg1jr7hctv08" path="res://enemy_ship_prompt.tscn" id="10_e2ius"]
 [ext_resource type="AudioStream" uid="uid://bo3gadlc2yc7j" path="res://audio/Boss Battle #2 V1.wav" id="12_klqht"]
 
 [sub_resource type="Curve2D" id="Curve2D_c74ci"]
@@ -56,11 +56,19 @@ rock_scene = ExtResource("2_nik6d")
 game_over_scene = ExtResource("3_givi8")
 
 [node name="ShipDeckView" parent="." groups=["disabled_scripts"] instance=ExtResource("1_mbetu")]
+offset_left = -43.0
+offset_top = -324.0
+offset_right = 533.0
+offset_bottom = 188.0
+
+[node name="SubViewport" parent="ShipDeckView" index="0"]
+transparent_bg = true
 
 [node name="Player" parent="ShipDeckView/SubViewport/ShipDeckTileMap" index="1"]
 hole_scene = ExtResource("4_6t18t")
 
 [node name="RockPath" type="Path2D" parent="."]
+position = Vector2(-425, -31)
 curve = SubResource("Curve2D_c74ci")
 metadata/_edit_group_ = true
 
@@ -68,21 +76,28 @@ metadata/_edit_group_ = true
 position = Vector2(896, 192)
 
 [node name="SeaMapView" parent="." instance=ExtResource("2_hucxx")]
+offset_left = -675.0
+offset_top = -156.0
+offset_right = -425.0
+offset_bottom = 94.0
+
+[node name="SubViewport" parent="SeaMapView" index="0"]
+transparent_bg = true
 
 [node name="RockTimer" type="Timer" parent="."]
 
 [node name="ShipHealth" parent="." instance=ExtResource("5_pwijg")]
-offset_left = 704.0
-offset_top = 68.0
-offset_right = 736.0
-offset_bottom = 580.0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 45.0
+offset_bottom = 526.0
 script = SubResource("GDScript_hmfir")
 
 [node name="CannonBallContainer" type="Container" parent="."]
-offset_left = 616.0
-offset_top = 368.0
-offset_right = 675.0
-offset_bottom = 427.0
+offset_left = 268.0
+offset_top = 458.0
+offset_right = 327.0
+offset_bottom = 517.0
 script = ExtResource("6_ocguf")
 
 [node name="TextureRect" type="TextureRect" parent="CannonBallContainer"]
@@ -90,10 +105,10 @@ layout_mode = 2
 texture = ExtResource("6_tdor3")
 
 [node name="PlankContainer" type="Container" parent="."]
-offset_left = 616.0
-offset_top = 296.0
-offset_right = 675.0
-offset_bottom = 355.0
+offset_left = 202.0
+offset_top = 458.0
+offset_right = 261.0
+offset_bottom = 517.0
 script = ExtResource("8_01oh7")
 metadata/_edit_group_ = true
 
