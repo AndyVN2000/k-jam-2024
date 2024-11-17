@@ -59,13 +59,10 @@ func _on_cannon_area_body_entered(body: Node2D) -> void:
 	if not holding_cannon_ball:
 		return
 	holding_cannon_ball = false
-	print("FIRE AT WILL")
 	cannon_ball_drop.emit()
-	# TODO: Harm some enemy ships
 	SignalBus.on_return_fire.emit()
 	
-	pass # Replace with function body.
-
+	$CannonFire.play()
 
 func _on_wheel_area_body_entered(body: Node2D) -> void:
 	can_steer_wheel.emit()
