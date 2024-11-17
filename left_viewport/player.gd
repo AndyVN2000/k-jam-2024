@@ -9,7 +9,7 @@ signal cannot_steer_wheel
 
 @onready var smoke = get_node("../CannonArea/CannonSmoke")
 
-var speed = 150.0
+var speed = 100.0
 var holding_cannon_ball: bool = false
 var holding_plank: bool = false
 @export var hole_scene: PackedScene
@@ -24,19 +24,39 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	var velocity = Vector2.ZERO # The player's movement vector.
-	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
-		$AnimatedSprite2D.animation = "walk_right"
-		$AnimatedSprite2D.play()
-	if Input.is_action_pressed("move_left"):
+	if Input.is_action_pressed("move_down") && Input.is_action_pressed("move_left"):
 		$AnimatedSprite2D.animation = "walk_left"
 		$AnimatedSprite2D.play()
 		velocity.x -= 1
-	if Input.is_action_pressed("move_down"):
+		velocity.y += 1
+	elif Input.is_action_pressed("move_down") && Input.is_action_pressed("move_right"):
+		$AnimatedSprite2D.animation = "walk_right"
+		$AnimatedSprite2D.play()
+		velocity.x += 1
+		velocity.y += 1
+	elif Input.is_action_pressed("move_up") && Input.is_action_pressed("move_left"):
+		$AnimatedSprite2D.animation = "walk_left"
+		$AnimatedSprite2D.play()
+		velocity.x -= 1
+		velocity.y -= 1
+	elif Input.is_action_pressed("move_up") && Input.is_action_pressed("move_right"):
+		$AnimatedSprite2D.animation = "walk_right"
+		$AnimatedSprite2D.play()
+		velocity.x += 1
+		velocity.y -= 1
+	elif Input.is_action_pressed("move_right"):
+		velocity.x += 1
+		$AnimatedSprite2D.animation = "walk_right"
+		$AnimatedSprite2D.play()
+	elif Input.is_action_pressed("move_left"):
+		$AnimatedSprite2D.animation = "walk_left"
+		$AnimatedSprite2D.play()
+		velocity.x -= 1
+	elif Input.is_action_pressed("move_down"):
 		$AnimatedSprite2D.animation = "walk_down"
 		$AnimatedSprite2D.play()
 		velocity.y += 1
-	if Input.is_action_pressed("move_up"):
+	elif Input.is_action_pressed("move_up"):
 		$AnimatedSprite2D.animation = "walk_up"
 		$AnimatedSprite2D.play()
 		velocity.y -= 1

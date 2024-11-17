@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://bplur7acmy2x"]
+[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://wi61hmw1pwpq"]
 
 [ext_resource type="Texture2D" uid="uid://clrgrj20wxroe" path="res://art/props/cannon_down.png" id="1_yu83c"]
 [ext_resource type="Texture2D" uid="uid://d08ckuec1ov3v" path="res://art/props/cannon_up.png" id="2_bajda"]
