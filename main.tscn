@@ -113,7 +113,6 @@ layout_mode = 2
 texture = ExtResource("6_tdor3")
 
 [node name="EnemyShipPrompt" parent="." instance=ExtResource("10_e2ius")]
-visible = true
 offset_left = 108.0
 offset_top = 384.0
 offset_right = 556.0
