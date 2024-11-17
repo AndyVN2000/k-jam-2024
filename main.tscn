@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://beprj65unhksn"]
+[gd_scene load_steps=15 format=3 uid="uid://beprj65unhksn"]
 
 [ext_resource type="PackedScene" uid="uid://737aqfe5a0mp" path="res://left_viewport/ship_deck_view.tscn" id="1_mbetu"]
 [ext_resource type="Script" path="res://main.gd" id="1_y5gon"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://8oyluv6m5gth" path="res://gui/item_frame.png" id="6_tdor3"]
 [ext_resource type="Script" path="res://plank_container.gd" id="8_01oh7"]
 [ext_resource type="PackedScene" uid="uid://pg1jr7hctv08" path="res://enemy_ship_prompt.tscn" id="10_e2ius"]
+[ext_resource type="AudioStream" uid="uid://bo3gadlc2yc7j" path="res://audio/Boss Battle #2 V1.wav" id="12_klqht"]
 
 [sub_resource type="Curve2D" id="Curve2D_c74ci"]
 _data = {
@@ -105,6 +106,11 @@ offset_left = 64.0
 offset_top = 488.0
 offset_right = 512.0
 offset_bottom = 568.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_klqht")
+volume_db = -15.0
+autoplay = true
 
 [connection signal="body_exited" from="ShipDeckView/SubViewport/ShipDeckTileMap/WheelArea" to="ShipDeckView/SubViewport/ShipDeckTileMap/Player" method="_on_wheel_area_body_exited"]
 [connection signal="timeout" from="RockTimer" to="." method="_on_rock_timer_timeout"]

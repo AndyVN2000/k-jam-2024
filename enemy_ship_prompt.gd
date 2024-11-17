@@ -29,3 +29,4 @@ func _on_return_fire():
 		$FlashingPrompt.stop()
 		$AttackTimer.stop()
 		$EnemyShipTimer.start()
+		visible = false

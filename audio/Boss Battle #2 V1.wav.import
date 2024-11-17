@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bo3gadlc2yc7j"
+path="res://.godot/imported/Boss Battle #2 V1.wav-c69cd0b2c9b145ea28851b8231aa8f53.sample"
+
+[deps]
+
+source_file="res://audio/Boss Battle #2 V1.wav"
+dest_files=["res://.godot/imported/Boss Battle #2 V1.wav-c69cd0b2c9b145ea28851b8231aa8f53.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
