@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dmae8l515llnd" path="res://left_viewport/player.tscn" id="2_y84hh"]
 [ext_resource type="Texture2D" uid="uid://dxtvjknuly8sq" path="res://art/props/hole_v2.png" id="3_2c06q"]
 [ext_resource type="Script" path="res://left_viewport/cannon_ball_resource.gd" id="4_21pyh"]
-[ext_resource type="TileSet" uid="uid://wi61hmw1pwpq" path="res://left_viewport/tilesetDeckWithCollision.tres" id="4_ylrjg"]
+[ext_resource type="TileSet" uid="uid://bplur7acmy2x" path="res://left_viewport/tilesetDeckWithCollision.tres" id="4_ylrjg"]
 [ext_resource type="Script" path="res://left_viewport/hole_layer.gd" id="8_13lpu"]
 [ext_resource type="Texture2D" uid="uid://cbi6lhmp5mo1m" path="res://art/smoke_from_cannon.png" id="9_7382r"]
 [ext_resource type="PackedScene" uid="uid://chkyp2hj110ls" path="res://left_viewport/hole.tscn" id="13_2jumd"]

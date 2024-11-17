@@ -4,8 +4,8 @@ extends Node2D
 @onready var hole_cells: TileMapLayer = get_node("LayerHolder/HoleLayer")
 @export var hole_scene: PackedScene
 
-const top_left = Vector2(0, 9)
-const bottom_right = Vector2(36, 24)
+const top_left = Vector2(8, 12)
+const bottom_right = Vector2(29, 20)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,7 +28,7 @@ func _create_hole():
 
 func get_random_tile_coordinate():
 	# Get a random position within the defined area
-	var x = randi() % int(bottom_right.x - top_left.x)
+	var x = (randi() % int(bottom_right.x - top_left.x)) + top_left.x
 	var y = (randi() % int(bottom_right.y - top_left.y)) + top_left.y
 	
 	var cell = hole_cells.map_to_local(Vector2(x, y))
