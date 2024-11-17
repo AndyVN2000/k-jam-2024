@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://main.gd" id="1_y5gon"]
 [ext_resource type="PackedScene" uid="uid://bfxfddmw86v3l" path="res://right_viewport/sea_map.tscn" id="2_hucxx"]
 [ext_resource type="PackedScene" uid="uid://dqo13aryubtnr" path="res://right_viewport/rock.tscn" id="2_nik6d"]
-[ext_resource type="PackedScene" path="res://game_over_screen.tscn" id="3_givi8"]
+[ext_resource type="PackedScene" uid="uid://c0tateomm2mfg" path="res://game_over_screen.tscn" id="3_givi8"]
 [ext_resource type="PackedScene" uid="uid://chkyp2hj110ls" path="res://left_viewport/hole.tscn" id="4_6t18t"]
 [ext_resource type="PackedScene" uid="uid://bsa6ivxirf03r" path="res://gui/ship_health.tscn" id="5_pwijg"]
 [ext_resource type="Script" path="res://cannon_ball_container.gd" id="6_ocguf"]
@@ -14,12 +14,6 @@
 [ext_resource type="AudioStream" uid="uid://bo3gadlc2yc7j" path="res://audio/Boss Battle #2 V1.wav" id="12_klqht"]
 [ext_resource type="Texture2D" uid="uid://dlvv63rbxtbpn" path="res://art/beta_planks.png" id="13_4g3e3"]
 [ext_resource type="Texture2D" uid="uid://bv7klupx0rvnu" path="res://art/background.png" id="14_rnqtg"]
-
-[sub_resource type="Curve2D" id="Curve2D_c74ci"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 896, 192, 0, 0, 0, 0, 1152, 192, 0, 0, 0, 0, 1152, 448, 0, 0, 0, 0, 896, 448, 0, 0, 0, 0, 896, 192)
-}
-point_count = 5
 
 [sub_resource type="GDScript" id="GDScript_hmfir"]
 script/source = "extends TextureProgressBar
@@ -52,6 +46,12 @@ func _on_hole_area_repaired() -> void:
 		value = 0
 "
 
+[sub_resource type="Curve2D" id="Curve2D_jhxwo"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 648, 152, 0, 0, 0, 0, 904, 152, 0, 0, 0, 0, 904, 408, 0, 0, 0, 0, 648, 408, 0, 0, 0, 0, 648, 152)
+}
+point_count = 5
+
 [node name="Main" type="Node"]
 script = ExtResource("1_y5gon")
 rock_scene = ExtResource("2_nik6d")
@@ -72,19 +72,11 @@ hole_scene = ExtResource("4_6t18t")
 [node name="CannonSmoke" parent="ShipDeckView/SubViewport/ShipDeckTileMap/CannonArea" index="1"]
 frame_progress = 0.0
 
-[node name="RockPath" type="Path2D" parent="."]
-position = Vector2(-245, -43)
-curve = SubResource("Curve2D_c74ci")
-metadata/_edit_group_ = true
-
-[node name="RockSpawnLocation" type="PathFollow2D" parent="RockPath"]
-position = Vector2(896, 192)
-
 [node name="SeaMapView" parent="." instance=ExtResource("2_hucxx")]
 offset_left = -304.0
-offset_top = -116.0
-offset_right = -54.0
-offset_bottom = 134.0
+offset_top = -110.0
+offset_right = -64.0
+offset_bottom = 130.0
 
 [node name="SubViewport" parent="SeaMapView" index="0"]
 transparent_bg = true
@@ -177,6 +169,12 @@ texture = ExtResource("13_4g3e3")
 z_index = -3
 position = Vector2(480, 270)
 texture = ExtResource("14_rnqtg")
+
+[node name="RockPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_jhxwo")
+
+[node name="RockSpawnLocation" type="PathFollow2D" parent="RockPath"]
+position = Vector2(648, 152)
 
 [connection signal="body_exited" from="ShipDeckView/SubViewport/ShipDeckTileMap/WheelArea" to="ShipDeckView/SubViewport/ShipDeckTileMap/Player" method="_on_wheel_area_body_exited"]
 [connection signal="timeout" from="RockTimer" to="." method="_on_rock_timer_timeout"]
