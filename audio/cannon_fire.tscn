@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c38spdfpwxnhv"]
+
+[ext_resource type="AudioStream" uid="uid://hfuulymh6cwv" path="res://audio/cannon_fire.ogg" id="1_gqhpi"]
+
+[node name="CannonFire" type="AudioStreamPlayer"]
+stream = ExtResource("1_gqhpi")
+volume_db = -15.0

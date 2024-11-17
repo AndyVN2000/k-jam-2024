@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bk7ylvog00emc" path="res://art/animation/player_animation/walk_left.png" id="4_5an07"]
 [ext_resource type="Texture2D" uid="uid://dwdooxucuf3p5" path="res://art/animation/player_animation/walk_up.png" id="4_ffqs6"]
 [ext_resource type="Texture2D" uid="uid://cpo1hxe7ghhpd" path="res://art/animation/player_animation/walk_right.png" id="5_lhkah"]
-[ext_resource type="AudioStream" uid="uid://hfuulymh6cwv" path="res://audio/cannon_fire.ogg" id="7_p0ub7"]
+[ext_resource type="PackedScene" uid="uid://c38spdfpwxnhv" path="res://audio/cannon_fire.tscn" id="7_6m5eq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1l1id"]
 size = Vector2(16, 16)
@@ -389,6 +389,4 @@ position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_x8o66")
 animation = &"walk_right"
 
-[node name="CannonFire" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_p0ub7")
-volume_db = -15.0
+[node name="CannonFire" parent="." instance=ExtResource("7_6m5eq")]
