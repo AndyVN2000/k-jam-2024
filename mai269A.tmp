@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://beprj65unhksn"]
+[gd_scene load_steps=13 format=3 uid="uid://beprj65unhksn"]
 
 [ext_resource type="PackedScene" uid="uid://737aqfe5a0mp" path="res://left_viewport/ship_deck_view.tscn" id="1_mbetu"]
 [ext_resource type="Script" path="res://main.gd" id="1_y5gon"]
 [ext_resource type="PackedScene" uid="uid://bfxfddmw86v3l" path="res://right_viewport/sea_map.tscn" id="2_hucxx"]
 [ext_resource type="PackedScene" uid="uid://dqo13aryubtnr" path="res://right_viewport/rock.tscn" id="2_nik6d"]
-[ext_resource type="PackedScene" uid="uid://c0tateomm2mfg" path="res://game_over_screen.tscn" id="3_givi8"]
 [ext_resource type="PackedScene" uid="uid://chkyp2hj110ls" path="res://left_viewport/hole.tscn" id="4_6t18t"]
 [ext_resource type="PackedScene" uid="uid://bsa6ivxirf03r" path="res://gui/ship_health.tscn" id="5_pwijg"]
 [ext_resource type="Script" path="res://cannon_ball_container.gd" id="6_ocguf"]
@@ -52,7 +51,6 @@ func _on_hole_area_repaired() -> void:
 [node name="Main" type="Node"]
 script = ExtResource("1_y5gon")
 rock_scene = ExtResource("2_nik6d")
-game_over_scene = ExtResource("3_givi8")
 
 [node name="ShipDeckView" parent="." groups=["disabled_scripts"] instance=ExtResource("1_mbetu")]
 

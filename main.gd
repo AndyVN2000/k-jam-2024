@@ -3,7 +3,9 @@ extends Node
 @onready var rock_spawn_location = get_node("RockPath")
 @onready var ship = get_node("SeaMapView/SubViewport/Ship")
 @onready var player = get_node("ShipDeckView/SubViewport/ShipDeckTileMap/Player")
+@onready var health = get_node("ShipHealth")
 @export var rock_scene: PackedScene
+@export var game_over_scene: PackedScene
 var score
 var angle_width = deg_to_rad(60)
 var can_steer_wheel = true
@@ -86,4 +88,10 @@ func get_points_within_angle(center: Vector2, direction: Vector2, angle_width: f
 
 func _on_ship_health_game_over() -> void:
 	print("GAME OVER")
+	var children = get_children()
+	for child in children:
+		child.queue_free()
+	
+	add_child(game_over_scene.instantiate())
+	
 	pass # Replace with function body.

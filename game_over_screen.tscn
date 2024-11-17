@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c0tateomm2mfg"]
+
+[node name="GameOverScreen" type="Label"]
+offset_right = 1152.0
+offset_bottom = 648.0
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
