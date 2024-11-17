@@ -7,7 +7,7 @@ signal plank_drop
 signal can_steer_wheel
 signal cannot_steer_wheel
 
-var speed = 100.0
+var speed = 150.0
 var holding_cannon_ball: bool = false
 var holding_plank: bool = false
 @export var hole_scene: PackedScene

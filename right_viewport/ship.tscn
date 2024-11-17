@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://besrp0y36utci"]
 
 [ext_resource type="Script" path="res://right_viewport/ship.gd" id="1_sucn4"]
-[ext_resource type="Texture2D" uid="uid://c1d6lw0kgcae" path="res://art/alpha_ship.png" id="1_y71xq"]
+[ext_resource type="Texture2D" uid="uid://deh1xh3xydiyg" path="res://art/beta_ship.png" id="2_hor0p"]
 
 [node name="Ship" type="Area2D"]
 script = ExtResource("1_sucn4")
@@ -9,11 +9,11 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
-texture = ExtResource("1_y71xq")
+texture = ExtResource("2_hor0p")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-0.148087, 0)
 scale = Vector2(1.00383, 1)
-polygon = PackedVector2Array(24, 0, 10, 10, -25, 10, -25, -10, 10, -10)
+polygon = PackedVector2Array(25.0521, 1, 15.0903, 8, -14.7952, 9, -17.7838, 4, -17.7838, -4, -13.7991, -9, 14.0941, -7)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

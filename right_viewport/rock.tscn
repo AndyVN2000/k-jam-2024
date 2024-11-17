@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqo13aryubtnr"]
 
 [ext_resource type="Script" path="res://right_viewport/rock.gd" id="1_00awd"]
-[ext_resource type="Texture2D" uid="uid://dik4m4ac40yd0" path="res://art/alpha_rock.png" id="1_wosui"]
+[ext_resource type="Texture2D" uid="uid://dmg6n61odyqcd" path="res://art/beta_rock.png" id="2_32ar6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_swacj"]
 radius = 7.0
@@ -14,5 +14,5 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_swacj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_wosui")
+texture = ExtResource("2_32ar6")
 metadata/_edit_group_ = true
