@@ -8,7 +8,7 @@ extends Node
 @export var game_over_scene: PackedScene
 var score
 var angle_width = deg_to_rad(60)
-var can_steer_wheel = true
+var can_steer_wheel = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

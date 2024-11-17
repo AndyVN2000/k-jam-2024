@@ -23,7 +23,7 @@ func _create_hole():
 	var hole = hole_scene.instantiate()
 	hole.position = coordinate
 	hole.visible = true
-	call_deferred("add_child", hole)
+	hole_cells.call_deferred("add_child", hole)
 
 
 func get_random_tile_coordinate():
