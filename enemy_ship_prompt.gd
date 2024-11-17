@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 # Enemy ship is spawned
 func _on_enemy_ship_timer_timeout() -> void:
 	health = 3
+	text = "ENEMY SHIP ATTACKING! " + str(health) + " HP!" 
 	$FlashingPrompt.start()
 	$EnemyShipTimer.stop()
 	$AttackTimer.start()
@@ -24,6 +25,7 @@ func _on_enemy_ship_timer_timeout() -> void:
 
 func _on_return_fire():
 	health -= 1
+	text = "ENEMY SHIP ATTACKING! " + str(health) + " HP!" 
 	# Enemy has been defeated
 	if health <= 0:
 		$FlashingPrompt.stop()

@@ -8,6 +8,7 @@ script = ExtResource("1_sucn4")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 rotation = 1.5708
 texture = ExtResource("2_hor0p")
 

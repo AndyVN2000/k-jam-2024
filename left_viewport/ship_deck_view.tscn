@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://737aqfe5a0mp"]
+[gd_scene load_steps=3 format=3 uid="uid://737aqfe5a0mp"]
 
+[ext_resource type="Texture2D" uid="uid://blg2jxjqpv867" path="res://art/deckFrame.png" id="2_nfsyc"]
 [ext_resource type="PackedScene" uid="uid://brag6ojr8mdyw" path="res://left_viewport/ship_deck_tile_map.tscn" id="2_opsjh"]
 
 [node name="ShipDeckView" type="SubViewportContainer"]
@@ -18,3 +19,8 @@ size = Vector2i(576, 512)
 render_target_update_mode = 4
 
 [node name="ShipDeckTileMap" parent="SubViewport" instance=ExtResource("2_opsjh")]
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport"]
+z_index = 1
+position = Vector2(304, 288)
+texture = ExtResource("2_nfsyc")

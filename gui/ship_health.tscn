@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://buf0gmpoxihps" path="res://gui/ship_health_progress.png" id="3_2xgfj"]
 
 [node name="ShipHealth" type="TextureProgressBar"]
+texture_filter = 1
 offset_right = 32.0
 offset_bottom = 512.0
 value = 50.0

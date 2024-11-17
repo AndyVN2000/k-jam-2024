@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bse6r3po15cgv"]
+[gd_scene load_steps=17 format=3 uid="uid://bse6r3po15cgv"]
 
 [ext_resource type="PackedScene" uid="uid://737aqfe5a0mp" path="res://left_viewport/ship_deck_view.tscn" id="1_mbetu"]
 [ext_resource type="Script" path="res://main.gd" id="1_y5gon"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" path="res://plank_container.gd" id="8_01oh7"]
 [ext_resource type="PackedScene" uid="uid://pg1jr7hctv08" path="res://enemy_ship_prompt.tscn" id="10_e2ius"]
 [ext_resource type="AudioStream" uid="uid://bo3gadlc2yc7j" path="res://audio/Boss Battle #2 V1.wav" id="12_klqht"]
+[ext_resource type="Texture2D" uid="uid://dlvv63rbxtbpn" path="res://art/beta_planks.png" id="13_4g3e3"]
+[ext_resource type="Texture2D" uid="uid://bv7klupx0rvnu" path="res://art/background.png" id="14_rnqtg"]
 
 [sub_resource type="Curve2D" id="Curve2D_c74ci"]
 _data = {
@@ -56,10 +58,10 @@ rock_scene = ExtResource("2_nik6d")
 game_over_scene = ExtResource("3_givi8")
 
 [node name="ShipDeckView" parent="." groups=["disabled_scripts"] instance=ExtResource("1_mbetu")]
-offset_left = -43.0
-offset_top = -324.0
-offset_right = 533.0
-offset_bottom = 188.0
+offset_left = 29.0
+offset_top = -275.0
+offset_right = 605.0
+offset_bottom = 237.0
 
 [node name="SubViewport" parent="ShipDeckView" index="0"]
 transparent_bg = true
@@ -68,7 +70,7 @@ transparent_bg = true
 hole_scene = ExtResource("4_6t18t")
 
 [node name="RockPath" type="Path2D" parent="."]
-position = Vector2(-425, -31)
+position = Vector2(-245, -43)
 curve = SubResource("Curve2D_c74ci")
 metadata/_edit_group_ = true
 
@@ -76,10 +78,10 @@ metadata/_edit_group_ = true
 position = Vector2(896, 192)
 
 [node name="SeaMapView" parent="." instance=ExtResource("2_hucxx")]
-offset_left = -675.0
-offset_top = -156.0
-offset_right = -425.0
-offset_bottom = 94.0
+offset_left = -304.0
+offset_top = -116.0
+offset_right = -54.0
+offset_bottom = 134.0
 
 [node name="SubViewport" parent="SeaMapView" index="0"]
 transparent_bg = true
@@ -87,17 +89,17 @@ transparent_bg = true
 [node name="RockTimer" type="Timer" parent="."]
 
 [node name="ShipHealth" parent="." instance=ExtResource("5_pwijg")]
-offset_left = 13.0
+offset_left = 53.0
 offset_top = 14.0
-offset_right = 45.0
+offset_right = 85.0
 offset_bottom = 526.0
 script = SubResource("GDScript_hmfir")
 
 [node name="CannonBallContainer" type="Container" parent="."]
-offset_left = 268.0
-offset_top = 458.0
-offset_right = 327.0
-offset_bottom = 517.0
+offset_left = 555.0
+offset_top = 300.0
+offset_right = 614.0
+offset_bottom = 359.0
 script = ExtResource("6_ocguf")
 
 [node name="TextureRect" type="TextureRect" parent="CannonBallContainer"]
@@ -105,10 +107,10 @@ layout_mode = 2
 texture = ExtResource("6_tdor3")
 
 [node name="PlankContainer" type="Container" parent="."]
-offset_left = 202.0
-offset_top = 458.0
-offset_right = 261.0
-offset_bottom = 517.0
+offset_left = 554.0
+offset_top = 208.0
+offset_right = 613.0
+offset_bottom = 267.0
 script = ExtResource("8_01oh7")
 metadata/_edit_group_ = true
 
@@ -117,15 +119,61 @@ layout_mode = 2
 texture = ExtResource("6_tdor3")
 
 [node name="EnemyShipPrompt" parent="." instance=ExtResource("10_e2ius")]
-offset_left = 64.0
-offset_top = 488.0
-offset_right = 512.0
-offset_bottom = 568.0
+visible = true
+offset_left = 108.0
+offset_top = 384.0
+offset_right = 556.0
+offset_bottom = 464.0
+text = "ENEMY SHIP ATTACKING!"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_klqht")
 volume_db = -15.0
 autoplay = true
+
+[node name="Container" type="Container" parent="."]
+z_index = -1
+offset_left = 620.0
+offset_top = 3.0
+offset_right = 660.0
+offset_bottom = 43.0
+
+[node name="TextureRect" type="TextureRect" parent="Container"]
+z_index = -1
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("13_4g3e3")
+
+[node name="Container2" type="Container" parent="."]
+z_index = -1
+offset_left = 325.0
+offset_top = 2.0
+offset_right = 365.0
+offset_bottom = 42.0
+
+[node name="TextureRect" type="TextureRect" parent="Container2"]
+z_index = -1
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("13_4g3e3")
+
+[node name="Container3" type="Container" parent="."]
+z_index = -1
+offset_left = 27.0
+offset_top = 2.0
+offset_right = 67.0
+offset_bottom = 42.0
+
+[node name="TextureRect" type="TextureRect" parent="Container3"]
+z_index = -1
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("13_4g3e3")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(480, 270)
+texture = ExtResource("14_rnqtg")
 
 [connection signal="body_exited" from="ShipDeckView/SubViewport/ShipDeckTileMap/WheelArea" to="ShipDeckView/SubViewport/ShipDeckTileMap/Player" method="_on_wheel_area_body_exited"]
 [connection signal="timeout" from="RockTimer" to="." method="_on_rock_timer_timeout"]
